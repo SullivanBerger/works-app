@@ -3,19 +3,25 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "migrate": "dotenv -e .env.local -- bunx prisma migrate dev",
+    "reset": "dotenv -e .env.local -- bunx prisma migrate reset",
+    "seed": "dotenv -e .env.local -- ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seeds/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "dotenv-cli": "^7.4.2",
     "hono": "^4.6.3",
     "next": "14.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
+    "@types/node": "^22.7.4",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "prisma": "^5.20.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   }
 }
